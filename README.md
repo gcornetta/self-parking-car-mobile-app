@@ -1,8 +1,6 @@
 ## Description
 This is a `Flutter` application that implements the mobile client for the **self-parking car**. This software is part of the [JavaScript self-parking car project](https://github.com/gcornetta/self-parking-car).
 
-## Usage
-
 
 ## Software requirements
 This software has been tested with `Flutter v.2.8.1` and `Dart v.2.15.1`. on `Visual Studio Code`. You need to install the following VSCode plugins:
