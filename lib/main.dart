@@ -13,7 +13,7 @@ Future main() async {
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'Pi Robot Car Voice UI';
+  static final String title = 'Pi Robot Car voice UI';
 
   @override
   Widget build(BuildContext context) => MaterialApp(
