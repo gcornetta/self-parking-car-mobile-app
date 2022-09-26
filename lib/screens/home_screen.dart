@@ -1,12 +1,9 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 import '../api/speech_api.dart';
 import '../main.dart';
 import '../widgets/substring_highlighted.dart';
-
 import '../utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,18 +18,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text(MyApp.title),
+          title: Text(MyApp.title),
           centerTitle: true,
           actions: [
             Builder(
               builder: (context) => IconButton(
-                icon: const Icon(Icons.content_copy),
+                icon: Icon(Icons.content_copy),
                 onPressed: () async {
                   await FlutterClipboard.copy(text);
 
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(content: Text('✓   Copied to Clipboard')),
-                  );
+                  //Scaffold.of(context).showSnackBar(
+                  //  SnackBar(content: Text('✓   Copied to Clipboard')),
+                  //);
                 },
               ),
             ),
@@ -44,12 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SubstringHighlight(
             text: text,
             terms: Command.all,
-            textStyle: const TextStyle(
+            textStyle: TextStyle(
               fontSize: 32.0,
               color: Colors.black,
               fontWeight: FontWeight.w400,
             ),
-            textStyleHighlight: const TextStyle(
+            textStyleHighlight: TextStyle(
               fontSize: 32.0,
               color: Colors.red,
               fontWeight: FontWeight.w400,
@@ -74,8 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
           setState(() => this.isListening = isListening);
 
           if (!isListening) {
-            Future.delayed(const Duration(seconds: 1), () {
-              Utils.scanText(text, dotenv.get('API_URL', fallback: 'http://192.168.1.6:6000'));
+            Future.delayed(Duration(seconds: 1), () {
+              Utils.scanText(text);
             });
           }
         },
